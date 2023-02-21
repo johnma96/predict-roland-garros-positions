@@ -12,6 +12,8 @@
 *.csv
 *.xlsx
 *.xls
+*.gdoc
+*.ini
 
 # Folders # 
 temp/
