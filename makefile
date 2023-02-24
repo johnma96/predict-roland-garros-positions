@@ -1,25 +1,36 @@
-advance:
-ifdef n_weeks
-	python3 advance.py $(n_weeks)
-else
-	python3 advance.py
-endif
-
-
-restart:
-ifdef restart_date
-	python3 restart.py $(restart_date)
-else
-	python3 restart.py 
-endif
-
-
-all: restart_data get_data_kaglee clean_data generate_features
+# get_data:
+# ifdef VAR1
+# ifdef VAR2
+# 	@echo "VAR1 is defined as $(VAR1) and VAR2 is defined as $(VAR2)"
+# 	$(eval VAR3 := $(if $(filter VAR3=%,$(MAKECMDGOALS)), $(patsubst VAR3=%,%,$(filter VAR3=%,$(MAKECMDGOALS))), ))
+# 	@echo "VAR3 is defined as $(if $(VAR3),$(VAR3),<not defined>)"
+# else
+# 	@echo "VAR1 is defined as $(VAR1) but VAR2 is not defined"
+# endif
+# else ifdef VAR2
+# 	@echo "VAR2 is defined as $(VAR2) but VAR1 is not defined"
+# else
+# 	@echo "Neither VAR1 nor VAR2 is defined"
+# endif
 
 get_data:
-ifdef dataset_name
 ifdef owner_dataset
-	python get_data_from_kaggle.py 
+ifdef dataset_name
+	python main.py data_from_kaggle owner_dataset=$(owner_dataset) dataset_name=$(dataset_name)
+else
+	@echo "owner_dataset is defined as $(owner_dataset) but dataset_name is not defined"
+endif
+else ifdef dataset_name
+	@echo "dataset_name is defined as $(dataset_name) but owner_dataset is not defined"
+else
+	python main.py data_from_kaggle
+endif
 
 
-restart_data:
+
+
+
+
+
+
+
