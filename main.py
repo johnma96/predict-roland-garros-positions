@@ -1,26 +1,43 @@
 import os
 import sys
+import numpy as np
 from predict_roland_garros_positions import *
 
 
 def run_data_from_kaggle(owner_dataset: str = "gmadevs", 
-                         dataset_name: str = "atp-matches-dataset", **kwargs):
+                         dataset_name: str = "atp-matches-dataset",
+                         start_year: str = '2000', 
+                         end_year: str = '2017', 
+                         **kwargs):
     
+    # Path to dowload dataset
     try:
         path_to_save = kwargs["path_to_save"]
         kwargs.pop("path_to_save")
 
         if not (path_to_save[-1] == os.sep):
             path_to_save = path_to_save + os.sep
-
     except:
         path_to_save = None
-    dowload_kaggle_dataset(
-        owner_dataset=owner_dataset,
-        dataset_name=dataset_name,
-        path_to_save=path_to_save,
-        **kwargs
-    )
+
+    if start_year == '2000' and end_year == '2017':
+        dowload_kaggle_dataset(
+            owner_dataset=owner_dataset,
+            dataset_name=dataset_name,
+            path_to_save=path_to_save,
+            **kwargs
+        )
+    else:
+        years = np.arange(int(start_year), int(end_year)+1)
+        start_name = 'atp_matches_'
+        for year in years:
+            dowload_kaggle_dataset(
+                owner_dataset=owner_dataset,
+                dataset_name=dataset_name,
+                file_name=f"{start_name}{year}"
+                path_to_save=path_to_save,
+
+            )
 
 
 def run_clean_data():
@@ -67,7 +84,7 @@ if __name__ == "__main__":
             process(**arguments)
         else:
             process()
-            
+
     elif sys.argv[1] == "clean_data":
         print(4)
         process()
