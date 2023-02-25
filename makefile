@@ -25,12 +25,3 @@ else ifdef dataset_name
 else
 	python main.py data_from_kaggle
 endif
-
-
-
-
-
-
-
-
-

@@ -87,3 +87,10 @@ docs folder: A default Sphinx project; see sphinx-doc.org for details.
 
 data folder: Use this folder to store your data. Here there's a python's file for get absolute path of this folder.
 Currently there are 5 folders for store data: raw (for raw data from the company), interim (for data with some modification but not completly), processed (for manipulated data in final version) and external(data from third parties).
+
+# Run data simulation
+Command to generate data:
+In the root of the repository use 
+    make get_data
+Or one level before the repo use
+    make -C predict-roland-garros-positions/ get_data
