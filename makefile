@@ -36,3 +36,16 @@ else ifdef end_year
 else
 	python main.py clean_data
 endif
+
+make_features:
+ifdef start_year
+ifdef end_year
+	python main.py make_features start_year=$(start_year) end_year=$(end_year)
+else
+	python main.py make_features start_year=$(start_year)
+endif
+else ifdef end_year
+	python main.py make_features end_year=$(end_year)
+else
+	python main.py make_features
+endif
