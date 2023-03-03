@@ -9,7 +9,6 @@ def restart_dataset(path, dataset_name):
         
         zf = ZipFile(file=zip_file)
         list_files_zip = zf.namelist()
-        print(list_files_zip)
         zf.close()
         
         for filename in [*[path+l for l in list_files_zip], zip_file]:
@@ -49,7 +48,9 @@ def dowload_kaggle_dataset(owner_dataset:str ,
     
     # Connect to kaggle api. You need to have kaggle credentials in the path 
     # 'C:\Users\<username>\.kaggle\'
-    
+
+    if (file_name is not None) and (not(file_name.endswith('.csv'))):
+        file_name = file_name +'.csv'
     
     if path_to_save is None:
         path_to_save = AbsPaths().get_abs_path_folder(folder_name='raw')
@@ -59,6 +60,7 @@ def dowload_kaggle_dataset(owner_dataset:str ,
     api = KaggleApi()
     api.authenticate()
 
+
     if file_name is None:
         restart_dataset(path=path_to_save, dataset_name=dataset_name)
         api.dataset_download_files(dataset=dataset, path=path_to_save, **kwargs)
@@ -66,10 +68,13 @@ def dowload_kaggle_dataset(owner_dataset:str ,
             uncompress_zip_file(file_path=path_to_save+dataset_name+'.zip')
     else:
         try:
+            restart_dataset(path=path_to_save, dataset_name=dataset_name)
+        except: pass
+        try:
             os.remove(path_to_save+file_name)
             restart_dataset(path=path_to_save, dataset_name=file_name)
         except:pass
-        
+
         api.dataset_download_file(dataset=dataset, file_name=file_name, path=path_to_save, **kwargs)
         if uncompress_dataset:
             try:

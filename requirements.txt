@@ -22,3 +22,4 @@ psycopg2==2.9.4
 seaborn==0.12.1
 mysql-connector-python==8.0.31
 kaggle==1.5.12
+datapackage==1.15.2

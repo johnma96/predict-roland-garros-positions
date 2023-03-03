@@ -203,3 +203,6 @@ reports/*.pptx
 
 # Credentials files
 credentials/*.json
+
+# Some datafiles
+!/data/interim/atp_matches_historic.csv

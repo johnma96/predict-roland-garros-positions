@@ -1,5 +1,6 @@
 import os
 import sys
+import warnings
 import numpy as np
 from predict_roland_garros_positions import *
 
@@ -31,24 +32,30 @@ def run_data_from_kaggle(owner_dataset: str = "gmadevs",
         years = np.arange(int(start_year), int(end_year)+1)
         start_name = 'atp_matches_'
         for year in years:
+            print(year)
             dowload_kaggle_dataset(
                 owner_dataset=owner_dataset,
                 dataset_name=dataset_name,
-                file_name=f"{start_name}{year}"
+                file_name=f"{start_name}{year}",
                 path_to_save=path_to_save,
 
             )
 
 
-def run_clean_data():
-    pass
+def run_clean_data(start_year="2000", end_year="2017"):
+    # Join tables
+    join_tables(start_year = start_year, end_year=end_year)
 
+    # Clean data
+    PlayerTable()
+    TableMatches()
 
 def run_make_features():
     pass
 
 
 def run_full_simulation():
+    run_data_from_kaggle()
     pass
 
 
@@ -72,22 +79,51 @@ if __name__ == "__main__":
         raise KeyError("This process does not exist")
     
 
-    
-
-
     if sys.argv[1] == "full_simulation":
         process()
 
     elif sys.argv[1] == "data_from_kaggle":
         if len(sys.argv) >= 3:
             arguments = {arg.split("=")[0]: arg.split("=")[1] for arg in sys.argv[2:]}
+            
+            if "end_year" in arguments.keys():
+                end_year = arguments['end_year']
+
+                if int(end_year) > 2017:
+                    arguments['end_year'] = str(2017)
+                    warnings.warn(message="Available data just to 2017")
+            
+            if "start_year" in arguments.keys():
+                start_year = arguments['start_year']
+                if int(start_year) < 2000:
+                    arguments['start_year'] = str(2000)
+                    warnings.warn(message="Available data just since 2000")
+
             process(**arguments)
         else:
             process()
 
     elif sys.argv[1] == "clean_data":
-        print(4)
-        process()
+        
+        if len(sys.argv) >= 3:
+            arguments = {arg.split("=")[0]: arg.split("=")[1] for arg in sys.argv[2:]}
+            
+            if "end_year" in arguments.keys():
+                end_year = arguments['end_year']
+
+                if int(end_year) > 2017:
+                    arguments['end_year'] = str(2017)
+                    warnings.warn(message="Available data just to 2017")
+            
+            if "start_year" in arguments.keys():
+                start_year = arguments['start_year']
+                if int(start_year) < 2000:
+                    arguments['start_year'] = str(2000)
+                    warnings.warn(message="Available data just since 2000")
+
+            process(**arguments)
+        else:
+            process()
     elif sys.argv[1] == "make_features":
         print(5)
         process()

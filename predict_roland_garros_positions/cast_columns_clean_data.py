@@ -5,7 +5,7 @@ import glob
 from utils import LoadData, AbsPaths
 from datapackage import Package
 
-def select_columns(file_name = "atp_matches_historic", cols:str=['tourney_id','round','winner_id',
+def select_columns(file_name = "atp_matches_historic", cols:str=['tourney_id','tourney_name','surface','tourney_date','round','winner_id',
                                                                  'winner_rank', 'winner_rank_points', 'loser_id',
                                                              'loser_rank', 'loser_rank_points','score','minutes'],
                    path_file_name=None, path_to_save = None):
@@ -15,14 +15,14 @@ def select_columns(file_name = "atp_matches_historic", cols:str=['tourney_id','r
     data=data.loc[:,cols]
     return data
 
-def  tourney_table(file_name:str=None, path_to_save = None):
+def tourney_table(file_name:str=None, path_to_save = None):
     data=select_columns(cols=['tourney_id', 'tourney_name', 'surface','tourney_date']).drop_duplicates()
     if path_to_save is None:
         path_to_save = AbsPaths().get_abs_path_folder(folder_name='interim')
     if file_name is None:
         file_name= 'TourneyTable'
     data.to_csv(path_to_save + f"{file_name}.csv", index=False)
-    
+
 def GetAuxiliarDataHub(link='https://datahub.io/sports-data/atp-world-tour-tennis-data/datapackage.json'):
     package = Package(link)
     return package
@@ -43,7 +43,6 @@ def OpenAuxiliarData(name:str='player_overviews_unindexed', path:str=None):
         auxiliarData=SaveAuxiliarDataHub(path, name)
     AuxiliarData=pd.read_csv(path+ f"{name}.csv")
     return AuxiliarData
-
 
 def PlayerTable(file_name:str=None, path_to_save = None):
     data=select_columns(cols=['tourney_date','winner_id','winner_name','winner_ht','winner_age','winner_ioc']).rename(columns={'winner_id':'id','winner_name':'name','winner_ht':'ht', 'winner_age':'age','winner_ioc':'ioc'})                          
@@ -71,6 +70,7 @@ def AddCharacteristic_PlayerTable(players, characteristic):
             try:
                 players.loc[i, characteristic]=AuxiliarData[AuxiliarData.name==players.loc[i,'name']][characteristic].values[0] 
             except:pass
+    players.loc[players[characteristic].isna(),characteristic]=players[characteristic].mean()
     return players
 
 def ReviewHt_PlayerTable(players):
@@ -86,7 +86,16 @@ def ReviewHt_PlayerTable(players):
     players.loc[players.ht.isna(),'ht']=players.ht.mean()
     return players
 
-
+def TableMatches(file_name:str=None, path_to_save = None):
+    data=select_columns()
+    Nan=NanColumns(data)
+    data=CleanNaNData(data, Nan)
+    # data=CleanProperties(data,Nan)
+    if path_to_save is None:
+        path_to_save = AbsPaths().get_abs_path_folder(folder_name='interim')
+    if file_name is None:
+        file_name= 'MatchesTable'
+    data.to_csv(path_to_save + f"{file_name}.csv", index=False)
 
 def NanColumns(data):
     NanCols=data.keys()[data.isna().sum()>0]
@@ -95,8 +104,10 @@ def NanColumns(data):
 def CleanNaNData(data, Nan):
     if 'minutes' in Nan:
         data=CleanMinutes(data)
-    Nan=Nan.drop('minutes')
-    #data=CleanProperties(data, Nan)
+    try:
+        Nan=Nan.drop('minutes')
+    except: pass
+    data=CleanProperties(data, Nan)
     return data
 
 def CleanMinutes(data):
@@ -115,15 +126,3 @@ def CleanProperties(data, Nan):
             else:
                 data.loc[k,j]=round(data.loc[:,'loser_rank'].mean(),0)
     return data
-
-def TableMatches(file_name:str=None, path_to_save = None):
-    data=select_columns()
-    Nan=NanColumns(data)
-    data=CleanNaNData(data, Nan)
-    data=CleanProperties(data,Nan)
-    if path_to_save is None:
-        path_to_save = AbsPaths().get_abs_path_folder(folder_name='interim')
-    if file_name is None:
-        file_name= 'MatchesTable'
-    data.to_csv(path_to_save + f"{file_name}.csv", index=False)
-    
