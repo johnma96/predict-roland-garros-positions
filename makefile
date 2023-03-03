@@ -13,15 +13,28 @@
 # 	@echo "Neither VAR1 nor VAR2 is defined"
 # endif
 
-get_data:
-ifdef owner_dataset
-ifdef dataset_name
-	python main.py data_from_kaggle owner_dataset=$(owner_dataset) dataset_name=$(dataset_name)
+# get_data:
+# ifdef owner_dataset
+# ifdef dataset_name
+# 	python main.py data_from_kaggle owner_dataset=$(owner_dataset) dataset_name=$(dataset_name)
+# else
+# 	@echo "owner_dataset is defined as $(owner_dataset) but dataset_name is not defined"
+# endif
+# else ifdef dataset_name
+# 	@echo "dataset_name is defined as $(dataset_name) but owner_dataset is not defined"
+# else
+# 	python main.py data_from_kaggle
+# endif
+
+full_simulation:
+ifdef start_year
+ifdef end_year
+	python main.py full_simulation start_year=$(start_year) end_year=$(end_year)
 else
-	@echo "owner_dataset is defined as $(owner_dataset) but dataset_name is not defined"
+	python main.py full_simulation start_year=$(start_year)
 endif
-else ifdef dataset_name
-	@echo "dataset_name is defined as $(dataset_name) but owner_dataset is not defined"
+else ifdef end_year
+	python main.py full_simulation end_year=$(end_year)
 else
-	python main.py data_from_kaggle
+	python main.py full_simulation
 endif
