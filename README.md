@@ -89,8 +89,45 @@ data folder: Use this folder to store your data. Here there's a python's file fo
 Currently there are 5 folders for store data: raw (for raw data from the company), interim (for data with some modification but not completly), processed (for manipulated data in final version) and external(data from third parties).
 
 # Run data simulation
-Command to generate data:
+
+Commands to run stages or full simulation to get data, clean it and use it to make features that will be used to train models
+
+## Just get data
 In the root of the repository use 
-    make get_data
+```bash
+make get_data
+```
 Or one level before the repo use
-    make -C predict-roland-garros-positions/ get_data
+```bash
+make -C predict-roland-garros-positions/ get_data
+```
+
+## Clean data dowloaded
+In the root of the repository use
+```bash 
+make clean_data
+```
+Or one level before the repo use
+```bash
+make -C predict-roland-garros-positions/ clean_data
+```
+
+## Make features to train models using clean data
+In the root of the repository use
+```bash 
+make make_features
+```
+Or one level before the repo use
+```bash
+make -C predict-roland-garros-positions/ make_features
+```
+
+## Run full simulation (dowload data, clean data and make features)
+In the root of the repository use
+```bash 
+make full_simulation
+```
+Or one level before the repo use
+```bash
+make -C predict-roland-garros-positions/ full_simulation
+```
