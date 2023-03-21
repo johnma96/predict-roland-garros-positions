@@ -25,4 +25,3 @@ mysql-connector-python==8.0.31
 kaggle==1.5.12
 datapackage==1.15.2
 graphviz==0.20.1
-grpcio-status==1.48.2
