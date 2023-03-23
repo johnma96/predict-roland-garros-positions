@@ -210,6 +210,9 @@ reports/*.pptx
 !/reports/figures/model_production.png
 !/reports/figures/register_model.png
 
+# Pickle models
+*.pkl
+
 # Credentials files
 credentials/*.json
 
