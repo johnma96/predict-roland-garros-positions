@@ -1,0 +1,15 @@
+artifact_uri: file:///workspace/models/corridas2/552394378029237143/6926be093ff046f3968c232c1baa8a07/artifacts
+end_time: 1679589628086
+entry_point_name: ''
+experiment_id: '552394378029237143'
+lifecycle_stage: active
+run_id: 6926be093ff046f3968c232c1baa8a07
+run_name: nebulous-crane-94
+run_uuid: 6926be093ff046f3968c232c1baa8a07
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679589584923
+status: 3
+tags: []
+user_id: root

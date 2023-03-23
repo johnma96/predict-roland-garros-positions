@@ -1,0 +1,15 @@
+artifact_uri: file:///workspace/models/corridas2/552394378029237143/609f8dc518704c43832d24ed2efaa18a/artifacts
+end_time: 1679589628086
+entry_point_name: ''
+experiment_id: '552394378029237143'
+lifecycle_stage: active
+run_id: 609f8dc518704c43832d24ed2efaa18a
+run_name: victorious-mink-711
+run_uuid: 609f8dc518704c43832d24ed2efaa18a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679589584923
+status: 3
+tags: []
+user_id: root

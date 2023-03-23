@@ -238,7 +238,7 @@ class AbsPaths:
     # attrs
 
     @property
-    def excluded_folders(self) -> list[str]:
+    def excluded_folders(self):
         """
         Returns a list with the name of the folders excluded for the construction of absolute paths
 
@@ -251,7 +251,7 @@ class AbsPaths:
         return self._excluded_folders
 
     @excluded_folders.setter
-    def excluded_folders(self, folder_list: list[str]) -> None:
+    def excluded_folders(self, folder_list) -> None:
         """
         Sets the list of folders that are ignored by the instance
 
@@ -298,7 +298,7 @@ class AbsPaths:
         return self._excluded_files
 
     @excluded_files.setter
-    def excluded_files(self, file_list: list[str]) -> None:
+    def excluded_files(self, file_list) -> None:
         """
         Sets the list of generic files that are ignored by the instance
 
@@ -330,7 +330,7 @@ class AbsPaths:
         return self._file_endings_excluded
 
     @file_endings_excluded.setter
-    def file_endings_excluded(self, ending_list: list[str]) -> None:
+    def file_endings_excluded(self, ending_list) -> None:
         """
         Sets a list of filename endings to be excluded by the instance
 

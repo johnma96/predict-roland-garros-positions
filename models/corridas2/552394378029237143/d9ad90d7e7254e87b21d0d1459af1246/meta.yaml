@@ -1,0 +1,15 @@
+artifact_uri: file:///workspace/models/corridas2/552394378029237143/d9ad90d7e7254e87b21d0d1459af1246/artifacts
+end_time: 1679589257610
+entry_point_name: ''
+experiment_id: '552394378029237143'
+lifecycle_stage: active
+run_id: d9ad90d7e7254e87b21d0d1459af1246
+run_name: bedecked-panda-725
+run_uuid: d9ad90d7e7254e87b21d0d1459af1246
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679589167613
+status: 3
+tags: []
+user_id: root

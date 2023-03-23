@@ -201,6 +201,15 @@ reports/*.pptx
 *.csv
 *.gsheet
 
+# Images
+*.png
+*.jpg
+
+!/reports/figures/change_stage.png
+!/reports/figures/experiments_mlflow.png
+!/reports/figures/model_production.png
+!/reports/figures/register_model.png
+
 # Credentials files
 credentials/*.json
 

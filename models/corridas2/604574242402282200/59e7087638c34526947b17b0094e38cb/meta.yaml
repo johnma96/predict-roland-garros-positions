@@ -1,0 +1,15 @@
+artifact_uri: file:///workspace/models/corridas2/604574242402282200/59e7087638c34526947b17b0094e38cb/artifacts
+end_time: 1679589822733
+entry_point_name: ''
+experiment_id: '604574242402282200'
+lifecycle_stage: active
+run_id: 59e7087638c34526947b17b0094e38cb
+run_name: defiant-squid-506
+run_uuid: 59e7087638c34526947b17b0094e38cb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679589755512
+status: 3
+tags: []
+user_id: root

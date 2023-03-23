@@ -1,0 +1,15 @@
+artifact_uri: file:///workspace/models/corridas2/552394378029237143/e270ab33d4bd4725b2ee96fd17e20675/artifacts
+end_time: 1679589373964
+entry_point_name: ''
+experiment_id: '552394378029237143'
+lifecycle_stage: active
+run_id: e270ab33d4bd4725b2ee96fd17e20675
+run_name: magnificent-sow-656
+run_uuid: e270ab33d4bd4725b2ee96fd17e20675
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679589336612
+status: 3
+tags: []
+user_id: root

@@ -1,0 +1,15 @@
+artifact_uri: file:///workspace/models/corridas2/552394378029237143/3fa9faedea3f473d9dfc82a4b2cad411/artifacts
+end_time: 1679589373964
+entry_point_name: ''
+experiment_id: '552394378029237143'
+lifecycle_stage: active
+run_id: 3fa9faedea3f473d9dfc82a4b2cad411
+run_name: dazzling-wasp-635
+run_uuid: 3fa9faedea3f473d9dfc82a4b2cad411
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679589336612
+status: 3
+tags: []
+user_id: root

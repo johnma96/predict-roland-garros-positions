@@ -1,0 +1,15 @@
+artifact_uri: file:///workspace/models/corridas2/552394378029237143/b85323b697aa488cafff270c1bf88996/artifacts
+end_time: 1679589257610
+entry_point_name: ''
+experiment_id: '552394378029237143'
+lifecycle_stage: active
+run_id: b85323b697aa488cafff270c1bf88996
+run_name: magnificent-bee-349
+run_uuid: b85323b697aa488cafff270c1bf88996
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679589167613
+status: 3
+tags: []
+user_id: root
