@@ -1,0 +1,15 @@
+artifact_uri: file:///workspace/models/corridas2/552394378029237143/ac26b6ed38cf40eea99f8b8b352d0dae/artifacts
+end_time: 1679589257610
+entry_point_name: ''
+experiment_id: '552394378029237143'
+lifecycle_stage: active
+run_id: ac26b6ed38cf40eea99f8b8b352d0dae
+run_name: grandiose-wasp-78
+run_uuid: ac26b6ed38cf40eea99f8b8b352d0dae
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679589167613
+status: 3
+tags: []
+user_id: root

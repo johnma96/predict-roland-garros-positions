@@ -1,0 +1,15 @@
+artifact_uri: file:///workspace/models/corridas2/552394378029237143/fd77cea6d3c649f994518507feb8c236/artifacts
+end_time: 1679589373964
+entry_point_name: ''
+experiment_id: '552394378029237143'
+lifecycle_stage: active
+run_id: fd77cea6d3c649f994518507feb8c236
+run_name: enchanting-owl-483
+run_uuid: fd77cea6d3c649f994518507feb8c236
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679589336612
+status: 3
+tags: []
+user_id: root

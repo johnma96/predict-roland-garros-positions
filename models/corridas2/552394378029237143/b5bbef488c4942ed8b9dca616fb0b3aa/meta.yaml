@@ -1,0 +1,15 @@
+artifact_uri: file:///workspace/models/corridas2/552394378029237143/b5bbef488c4942ed8b9dca616fb0b3aa/artifacts
+end_time: 1679589373964
+entry_point_name: ''
+experiment_id: '552394378029237143'
+lifecycle_stage: active
+run_id: b5bbef488c4942ed8b9dca616fb0b3aa
+run_name: industrious-bug-677
+run_uuid: b5bbef488c4942ed8b9dca616fb0b3aa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679589336612
+status: 3
+tags: []
+user_id: root

@@ -1,0 +1,15 @@
+artifact_uri: file:///workspace/models/corridas2/552394378029237143/385e19f99cf94806a3bd0db0c18cfa58/artifacts
+end_time: 1679589378759
+entry_point_name: ''
+experiment_id: '552394378029237143'
+lifecycle_stage: active
+run_id: 385e19f99cf94806a3bd0db0c18cfa58
+run_name: bemused-whale-817
+run_uuid: 385e19f99cf94806a3bd0db0c18cfa58
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679589336612
+status: 3
+tags: []
+user_id: root
