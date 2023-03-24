@@ -211,6 +211,7 @@ reports/*.pptx
 !/reports/figures/register_model.png
 !/reports/figures/model-as-serve.png
 !/reports/figures/use-model-rest-api.png
+!/reports/figures/launch-mlflow-ui.png
 
 # Pickle models
 *.pkl
