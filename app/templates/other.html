@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Other Page</title>
+</head>
+<body>
+    <h1>Modelo de predicci&oacuten</h1>
+    <p>Se implement&oacute un modelo Random Forest para la predicci&oacuten de la ronda m&aacutexima a la que llegar&iacutea cada jugador en cualqueira de los 4 principales torneos de tennis a nivel mundial.</p>
+    <p> Los datos usados como inputs del modelo fueron:<p>
+    <ol>
+        <li>Edad del jugador al iniciar el torneo</li>
+        <li>Peso del jugador al iniciar el torneo</li>
+        <li>Altura del jugador</li>
+        <li>Peso del jugador</li>
+        <li>Tipo de torneo</li>
+        <li>Tipo de cancha en la que se juega</li>
+        <li>N. de partidos jugados en ese tipo de torneo al momento de inicio</li>
+        <li>N. de partidos ganados en ese tipo de torneo al momento de incio</li>
+        <li>N. de partidos perdidos en ese tipo de torneo al momento de inicio</li>
+        <li>Ranking en la tabla mundial al iniciar el modelo</li>
+    </ol>
+    <p> Y el output fue el número máximo de la ronda a la que llegaría el jugador durante el torneo en cuestión<p>
+    
+    
+    <form method="POST" action="{{ url_for('select_option') }}">
+        <label for="option">Estos son los resultados obtenidos del proceso de modelación:</label>
+        <select name="option" id="option">
+            <option value="option1">Confusion</option>
+            <option value="option2">Comparacion</option>
+            <option value="option3">Resumen</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
